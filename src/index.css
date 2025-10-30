@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+@import "tailwindcss";
+
+/* * 🎨 V4.1 CSS-FIRST THEME CONFIGURATION 
+ * Define your custom colors and fonts here
+ */
+@theme {
+  /* Custom Font */
+  --font-sans: 'Poppins', sans-serif;
+
+  /* Custom Colors (using the OKLCH palette for modern displays) */
+  --color-darkBg: oklch(10% 0.05 270);     /* Main background, deep blue-purple */
+  --color-darkCard: oklch(14% 0.07 270);   /* Card background, slightly lighter */
+  --color-darkBorder: oklch(25% 0.05 270); /* Subtle border color */
+  --color-accentBlue: oklch(65% 0.15 200); /* Vibrant accent blue/cyan */
+  --color-accentGreen: oklch(70% 0.18 140); /* Positive sentiment green */
+  --color-accentRed: oklch(60% 0.18 30);    /* Negative sentiment red */
+  --color-accentNeutral: oklch(75% 0.15 85);/* Neutral sentiment orange */
+
+  /* Custom Box Shadow (using CSS variable syntax for easier reuse) */
+  --shadow-3xl: 0 20px 50px rgba(0, 0, 0, 0.7);
+}
+
+/* Base styles for the body */
+@layer base {
+  body {
+    background-color: var(--color-darkBg);
+    color: oklch(90% 0.01 270); /* Light gray text */
+    font-family: var(--font-sans);
+  }
+}
+
+/* Custom utility for the focus glow */
+@layer utilities {
+  .form-control-focus:focus {
+    outline: none !important;
+    border-color: var(--color-accentBlue) !important;
+    /* Use a custom shadow value or the new built-in focus-ring in v4 */
+    box-shadow: 0 0 0 4px oklch(65% 0.15 200 / 0.3) !important;
+  }
+}
